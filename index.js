@@ -6,7 +6,7 @@ module.exports = {
   contentFor: function(type) {
     if (type === 'body') {
       return `
-        <script src="https://c.la1-c2cs-cdg.salesforceliveagent.com/content/g/js/44.0/deployment.js" defer></script>
+        <script src="https://service.force.com/embeddedservice/5.0/esw.min.js" defer></script>
       `;
     }
   }

@@ -1,0 +1,14 @@
+.embeddedServiceHelpButton .helpButton .uiButton, .sidebarHeader .shortHeader {
+    background-color: #005290 !important;
+}
+
+.embeddedServiceHelpButton .helpButton .uiButton:focus {
+    outline: 1px solid #005290 !important;
+}
+
+.embeddedServiceSidebarMinimizedDefaultUI {
+    background-color: #005290 !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-family: inherit !important;
+}

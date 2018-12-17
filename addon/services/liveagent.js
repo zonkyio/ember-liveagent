@@ -5,68 +5,76 @@ export default Service.extend({
 
   fastboot: service(),
 
-  init(params = {}) {
-    this._super(...arguments)
+  boot(options = {}) {
     if (this.get('fastboot.isFastBoot')) return;
-    if (!window.liveagent) return;
+
+    if (!window.embedded_svc) {
+      const config = getOwner(this).resolveRegistration('config:environment');
+
+      const salesforceURL = config['ember-liveagent'].salesforceURL;
+      
+      let s = document.createElement('script');
+      s.setAttribute('src', `${salesforceURL}/embeddedservice/5.0/esw.min.js`);
+      s.onload = function() {
+        this._initESW(null, options);
+      };
+      document.body.appendChild(s);
+    } else {
+      this._initESW('https://service.force.com', options);
+    }
+  },
+
+  _initESW(gslbBaseURL, options) {
+    if (this.get('fastboot.isFastBoot')) return;
+    if (!window.embedded_svc) return; 
+
     const config = getOwner(this).resolveRegistration('config:environment');
 
-    const id = config['ember-liveagent'].id;
+    const salesforceURL = config['ember-liveagent'].salesforceURL;
+    const communityURL = config['ember-liveagent'].communityURL;
     const org = config['ember-liveagent'].org;
-    const host = config['ember-liveagent'].host;
-    this._setParams(params);
-
-    window.liveagent.init(host, id, org);    
-  },
-
-  boot(online, offline, callback) {
-    if (this.get('fastboot.isFastBoot')) return;
-    if (!window.liveagent || !online || !offline || !callback) return;
-
-    const config = getOwner(this).resolveRegistration('config:environment');
+    const snapinName = config['ember-liveagent'].snapinName;
+    const baseLiveAgentContentURL = config['ember-liveagent'].baseLiveAgentContentURL;
+    const deploymentId = config['ember-liveagent'].deploymentId;
     const buttonId = config['ember-liveagent'].buttonId;
+    const baseLiveAgentURL = config['ember-liveagent'].baseLiveAgentURL;
+    const eswLiveAgentDevName = config['ember-liveagent'].eswLiveAgentDevName;
 
+    window.embedded_svc.settings.displayHelpButton = options.displayHelpButton || false;
+    window.embedded_svc.settings.language = options.language || 'en';
 
-    window.liveagent.addButtonEventHandler(buttonId, callback);
+    if(options.domain) {
+      window.embedded_svc.settings.storageDomain = options.domain;
+    }
 
-    window._laq = window._laq || [];
-    window._laq.push(function() {
-      window.liveagent.showWhenOnline(buttonId, document.getElementById(online));
-      window.liveagent.showWhenOffline(buttonId, document.getElementById(offline));
-    });
-  },
+    window.embedded_svc.snippetSettingsFile.extraPrechatFormDetails = options.extraPrechatFormDetails || [];
+    window.embedded_svc.snippetSettingsFile.extraPrechatInfo = options.extraPrechatInfo || [];
 
-  update(params) {
-    if (this.get('fastboot.isFastBoot')) return;
-    if (!window.liveagent) return; 
+    window.embedded_svc.settings.defaultMinimizedText = options.defaultMinimizedText || 'Chat with an Expert';
+    window.embedded_svc.settings.loadingText = options.loadingText || 'Loading';
 
-    this._setParams(params);
-  },
+    // Settings for Live Agent
+    window.embedded_svc.settings.prepopulatedPrechatFields = options.prepopulatedPrechatFields || {};
+    window.embedded_svc.settings.offlineSupportMinimizedText = options.offlineSupportMinimizedText || 'Contact Us';
 
-  startChat(){
-    if (this.get('fastboot.isFastBoot')) return;
-    if (!window.liveagent) return;
+    window.embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+    window.embedded_svc.settings.entryFeature = 'LiveAgent';
 
-    const config = getOwner(this).resolveRegistration('config:environment');
-    const buttonId = config['ember-liveagent'].buttonId;
-
-    window.liveagent.startChat(buttonId);
-  },
-
-  shutdown() {
-    if (this.get('fastboot.isFastBoot')) return;
-    if (!window.liveagent) return;
-    
-    window.liveagent.disconnect();
-  },
-
-  _setParams(params = {}){
-    Object.keys(params).forEach(function(key) {
-      if (key === 'name') {
-        window.liveagent.setName(params[key]);
-      } else {
-        window.liveagent.addCustomDetail(key, params[key]);
+    window.embedded_svc.init(
+      salesforceURL,
+      communityURL,
+      gslbBaseURL,
+      org,
+      snapinName,
+      {
+        baseLiveAgentContentURL,
+        deploymentId,
+        buttonId,
+        baseLiveAgentURL,
+        eswLiveAgentDevName,
+        isOfflineSupportEnabled: options.isOfflineSupportEnabled || false
       }
-    });
-  }
+    );
+  },
+
 });
