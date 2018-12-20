@@ -34,11 +34,13 @@ export default Service.extend({
     const communityURL = config['ember-liveagent'].communityURL;
     const org = config['ember-liveagent'].org;
     const snapinName = config['ember-liveagent'].snapinName;
+    const snapinNameWithoutPrechat = config['ember-liveagent'].snapinNameWithoutPrechat;
     const baseLiveAgentContentURL = config['ember-liveagent'].baseLiveAgentContentURL;
     const deploymentId = config['ember-liveagent'].deploymentId;
     const buttonId = config['ember-liveagent'].buttonId;
     const baseLiveAgentURL = config['ember-liveagent'].baseLiveAgentURL;
     const eswLiveAgentDevName = config['ember-liveagent'].eswLiveAgentDevName;
+    const eswLiveAgentDevNameWithoutPrechat = config['ember-liveagent'].eswLiveAgentDevNameWithoutPrechat;
 
     window.embedded_svc.settings.displayHelpButton = options.displayHelpButton || false;
     window.embedded_svc.settings.language = options.language || 'en';
@@ -65,13 +67,13 @@ export default Service.extend({
       communityURL,
       gslbBaseURL,
       org,
-      snapinName,
+      options.withPrechat ? snapinName : snapinNameWithoutPrechat,
       {
         baseLiveAgentContentURL,
         deploymentId,
         buttonId,
         baseLiveAgentURL,
-        eswLiveAgentDevName,
+        eswLiveAgentDevName: options.withPrechat ? eswLiveAgentDevName : eswLiveAgentDevNameWithoutPrechat,
         isOfflineSupportEnabled: options.isOfflineSupportEnabled || false
       }
     );
