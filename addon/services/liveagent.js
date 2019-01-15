@@ -15,8 +15,8 @@ export default Service.extend({
       
       let s = document.createElement('script');
       s.setAttribute('src', `${salesforceURL}/embeddedservice/5.0/esw.min.js`);
-      s.onload = function() {
-        this._initESW(null, options);
+      s.onload = () => {
+        this._initESW('https://service.force.com', options);
       };
       document.body.appendChild(s);
     } else {
