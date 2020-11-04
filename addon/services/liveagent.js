@@ -54,6 +54,9 @@ export default Service.extend({
 
     window.embedded_svc.settings.defaultMinimizedText = options.defaultMinimizedText || 'Chat with an Expert';
     window.embedded_svc.settings.loadingText = options.loadingText || 'Loading';
+    console.log("ember-liveagent - smallCompanyLogoImgURL ", config['ember-liveagent'].smallCompanyLogoImgURL);
+    console.log(config['ember-liveagent']);
+    
     if (config['ember-liveagent'].smallCompanyLogoImgURL) {
       window.embedded_svc.settings.smallCompanyLogoImgURL = config['ember-liveagent'].smallCompanyLogoImgURL;
     }
