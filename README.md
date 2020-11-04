@@ -29,6 +29,7 @@ ENV['ember-liveagent'] = {
   buttonId: '[BUTTON_ID]',
   baseLiveAgentURL: '[BASE_LIVEAGENT_URL]',
   eswLiveAgentDevName: '[ESW_LIVEAGENT_DEV_NAME]',
+  smallCompanyLogoImgURL: '[SMALL_COMPANY_LOGO_IMG_URL]'
 };
 ```
 
