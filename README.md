@@ -1,5 +1,11 @@
 # ember-liveagent
 
+[![Actions Status](https://github.com/zonkyio/ember-liveagent/workflows/CI/badge.svg)](https://github.com/zonkyio/ember-liveagent/actions)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/1f036b2befff3579f2f7/maintainability)](https://codeclimate.com/github/zonkyio/ember-liveagent/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/1f036b2befff3579f2f7/test_coverage)](https://codeclimate.com/github/zonkyio/ember-liveagent/test_coverage)
+
 Easily add Salesforce's Embedded Chat to your app.
 
 ## Compatibility

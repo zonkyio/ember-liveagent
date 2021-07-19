@@ -20,6 +20,10 @@ jobs:
       - run: npm run lint
       - run: npm run test:ember
 
+      - uses: paambaati/codeclimate-action@v2.7.5
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+
   floating-dependencies:
     name: 'Floating Dependencies'
     runs-on: ubuntu-latest
