@@ -41,6 +41,21 @@ module.exports = function (environment) {
 
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
+
+    ENV['ember-liveagent'] = {
+      salesforceURL: 'test://salesforceURL',
+      communityURL: 'test://communityURL',
+      org: 'test://org',
+      snapinName: 'test://snapinName',
+      snapinNameWithoutPrechat: 'test://snapinNameWithoutPrechat',
+      baseLiveAgentContentURL: 'test://baseLiveAgentContentURL',
+      deploymentId: 'test://deploymentId',
+      buttonId: 'test://buttonId',
+      baseLiveAgentURL: 'test://baseLiveAgentURL',
+      eswLiveAgentDevName: 'test://eswLiveAgentDevName',
+      eswLiveAgentDevNameWithoutPrechat:
+        'test://eswLiveAgentDevNameWithoutPrechat',
+    };
   }
 
   if (environment === 'production') {

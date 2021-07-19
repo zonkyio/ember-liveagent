@@ -1,11 +1,13 @@
-import Service, { inject as service } from '@ember/service';
+import Service from '@ember/service';
 import { getOwner } from '@ember/application';
 
 export default class LiveAgentService extends Service {
-  @service fastboot;
+  isFastBoot = typeof FastBoot !== 'undefined';
 
   boot(options = {}) {
-    if (this.fastboot.isFastBoot) return;
+    if (this.isFastBoot) {
+      return;
+    }
 
     if (!window.embedded_svc) {
       const config = getOwner(this).resolveRegistration('config:environment');
@@ -24,8 +26,9 @@ export default class LiveAgentService extends Service {
   }
 
   _initESW(gslbBaseURL, options) {
-    if (this.fastboot.isFastBoot) return;
-    if (!window.embedded_svc) return;
+    if (!window.embedded_svc) {
+      return;
+    }
 
     const config = getOwner(this).resolveRegistration('config:environment');
 
