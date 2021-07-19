@@ -68,5 +68,5 @@ const liveagentOptions = {
   offlineSupportMinimizedText: 'You can contact us', // default value: 'Contact Us'
 };
 
-this.get('liveagent').boot(liveagentOptions);
+this.liveagent.boot(liveagentOptions);
 ```
