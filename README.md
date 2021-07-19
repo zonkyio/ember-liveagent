@@ -1,27 +1,20 @@
-ember-liveagent
-==============================================================================
+# ember-liveagent
 
 Easily add Salesforce's Embedded Chat to your app.
 
+## Compatibility
 
-Compatibility
-------------------------------------------------------------------------------
+- Ember.js v3.20 or above
+- Ember CLI v3.20 or above
+- Node.js v12 or above
 
-* Ember.js v3.20 or above
-* Ember CLI v3.20 or above
-* Node.js v10 or above
-
-
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install ember-liveagent --s
 ```
 
-
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 First you'll need to configure your liveagent:
 
@@ -44,7 +37,6 @@ ENV['ember-liveagent'] = {
 Here are all the parameters used in init method to help you configure the liveagent addon:
 
 ```javascript
-
 window.embedded_svc.init(
   salesforceURL,
   communityURL,
@@ -57,7 +49,7 @@ window.embedded_svc.init(
     buttonId,
     baseLiveAgentURL,
     eswLiveAgentDevName,
-    isOfflineSupportEnabled: options.isOfflineSupportEnabled || false
+    isOfflineSupportEnabled: options.isOfflineSupportEnabled || false,
   }
 );
 ```
@@ -76,5 +68,5 @@ const liveagentOptions = {
   offlineSupportMinimizedText: 'You can contact us', // default value: 'Contact Us'
 };
 
-this.get('liveagent').boot(liveagentOptions); 
+this.get('liveagent').boot(liveagentOptions);
 ```
