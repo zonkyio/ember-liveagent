@@ -1,11 +1,11 @@
 import Service, { inject as service } from '@ember/service';
 import { getOwner } from '@ember/application';
 
-export default Service.extend({
-  fastboot: service(),
+export default class LiveAgentService extends Service {
+  @service fastboot;
 
   boot(options = {}) {
-    if (this.get('fastboot.isFastBoot')) return;
+    if (this.fastboot.isFastBoot) return;
 
     if (!window.embedded_svc) {
       const config = getOwner(this).resolveRegistration('config:environment');
@@ -21,10 +21,10 @@ export default Service.extend({
     } else {
       this._initESW('https://service.force.com', options);
     }
-  },
+  }
 
   _initESW(gslbBaseURL, options) {
-    if (this.get('fastboot.isFastBoot')) return;
+    if (this.fastboot.isFastBoot) return;
     if (!window.embedded_svc) return;
 
     const config = getOwner(this).resolveRegistration('config:environment');
@@ -87,5 +87,5 @@ export default Service.extend({
         isOfflineSupportEnabled: options.isOfflineSupportEnabled || false,
       }
     );
-  },
-});
+  }
+}
