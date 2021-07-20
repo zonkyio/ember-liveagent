@@ -16,6 +16,7 @@
 /.git/
 /.github/
 /.gitignore
+/.husky/
 /.prettierignore
 /.prettierrc.js
 /.release-it.js
@@ -24,6 +25,7 @@
 /bower.json
 /config/ember-try.js
 /CONTRIBUTING.md
+/coverage/
 /ember-cli-build.js
 /testem.js
 /tests/
