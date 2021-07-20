@@ -1,15 +1,21 @@
 {
   "name": "ember-liveagent",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Salesforce's live agent chat integration for Ember.js applications.",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "salesforce",
+    "liveagent",
+    "chat"
   ],
-  "repository": "",
+  "homepage": "https://github.com/zonkyio/ember-liveagent#readme",
+  "repository": "https://github.com/zonkyio/ember-liveagent.git",
+  "bugs": {
+    "url": "https://github.com/zonkyio/ember-liveagent/issues"
+  },
   "license": "MIT",
-  "author": "",
+  "author": "@zonkyio",
   "directories": {
-    "doc": "doc",
     "test": "tests"
   },
   "scripts": {
