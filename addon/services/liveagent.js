@@ -11,8 +11,7 @@ export default class LiveAgentService extends Service {
 
     if (!window.embedded_svc) {
       const config = getOwner(this).resolveRegistration('config:environment');
-
-      const salesforceURL = config['ember-liveagent'].salesforceURL;
+      const { salesforceURL } = config['ember-liveagent'];
 
       let s = document.createElement('script');
       s.setAttribute('src', `${salesforceURL}/embeddedservice/5.0/esw.min.js`);
@@ -31,63 +30,67 @@ export default class LiveAgentService extends Service {
     }
 
     const config = getOwner(this).resolveRegistration('config:environment');
+    const svc = window.embedded_svc;
 
-    const salesforceURL = config['ember-liveagent'].salesforceURL;
-    const communityURL = config['ember-liveagent'].communityURL;
-    const org = config['ember-liveagent'].org;
-    const snapinName = config['ember-liveagent'].snapinName;
-    const snapinNameWithoutPrechat =
-      config['ember-liveagent'].snapinNameWithoutPrechat;
-    const baseLiveAgentContentURL =
-      config['ember-liveagent'].baseLiveAgentContentURL;
-    const deploymentId = config['ember-liveagent'].deploymentId;
-    const buttonId = config['ember-liveagent'].buttonId;
-    const baseLiveAgentURL = config['ember-liveagent'].baseLiveAgentURL;
-    const eswLiveAgentDevName = config['ember-liveagent'].eswLiveAgentDevName;
-    const eswLiveAgentDevNameWithoutPrechat =
-      config['ember-liveagent'].eswLiveAgentDevNameWithoutPrechat;
+    const {
+      salesforceURL,
+      communityURL,
+      org,
+      snapinName,
+      snapinNameWithoutPrechat,
+      baseLiveAgentContentURL,
+      deploymentId,
+      buttonId,
+      baseLiveAgentURL,
+      eswLiveAgentDevName,
+      eswLiveAgentDevNameWithoutPrechat,
+    } = config['ember-liveagent'];
 
-    window.embedded_svc.settings.displayHelpButton =
-      options.displayHelpButton || false;
-    window.embedded_svc.settings.language = options.language || 'en';
+    const {
+      displayHelpButton = false,
+      language = 'en',
+      domain,
+      defaultMinimizedText = 'Chat with an Expert',
+      loadingText = 'Loading',
+      isOfflineSupportEnabled = false,
+      offlineSupportMinimizedText = 'Contact Us',
+      withPrechat = false,
+      prepopulatedPrechatFields = {},
+      extraPrechatFormDetails = [],
+      extraPrechatInfo = [],
+    } = options;
 
-    if (options.domain) {
-      window.embedded_svc.settings.storageDomain = options.domain;
+    svc.settings.displayHelpButton = displayHelpButton;
+    svc.settings.language = language;
+    svc.settings.defaultMinimizedText = defaultMinimizedText;
+    svc.settings.loadingText = loadingText;
+    svc.settings.prepopulatedPrechatFields = prepopulatedPrechatFields;
+    svc.settings.offlineSupportMinimizedText = offlineSupportMinimizedText;
+    svc.settings.enabledFeatures = ['LiveAgent'];
+    svc.settings.entryFeature = 'LiveAgent';
+
+    if (domain) {
+      svc.settings.storageDomain = domain;
     }
 
-    window.embedded_svc.snippetSettingsFile.extraPrechatFormDetails =
-      options.extraPrechatFormDetails || [];
-    window.embedded_svc.snippetSettingsFile.extraPrechatInfo =
-      options.extraPrechatInfo || [];
+    svc.snippetSettingsFile.extraPrechatFormDetails = extraPrechatFormDetails;
+    svc.snippetSettingsFile.extraPrechatInfo = extraPrechatInfo;
 
-    window.embedded_svc.settings.defaultMinimizedText =
-      options.defaultMinimizedText || 'Chat with an Expert';
-    window.embedded_svc.settings.loadingText = options.loadingText || 'Loading';
-
-    // Settings for Live Agent
-    window.embedded_svc.settings.prepopulatedPrechatFields =
-      options.prepopulatedPrechatFields || {};
-    window.embedded_svc.settings.offlineSupportMinimizedText =
-      options.offlineSupportMinimizedText || 'Contact Us';
-
-    window.embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-    window.embedded_svc.settings.entryFeature = 'LiveAgent';
-
-    window.embedded_svc.init(
+    svc.init(
       salesforceURL,
       communityURL,
       gslbBaseURL,
       org,
-      options.withPrechat ? snapinName : snapinNameWithoutPrechat,
+      withPrechat ? snapinName : snapinNameWithoutPrechat,
       {
         baseLiveAgentContentURL,
         deploymentId,
         buttonId,
         baseLiveAgentURL,
-        eswLiveAgentDevName: options.withPrechat
+        eswLiveAgentDevName: withPrechat
           ? eswLiveAgentDevName
           : eswLiveAgentDevNameWithoutPrechat,
-        isOfflineSupportEnabled: options.isOfflineSupportEnabled || false,
+        isOfflineSupportEnabled,
       }
     );
   }
