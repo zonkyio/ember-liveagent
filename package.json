@@ -92,7 +92,8 @@
     "configPath": "tests/dummy/config"
   },
   "volta": {
-    "node": "14.17.3"
+    "node": "16.13.2",
+    "npm": "8.1.2"
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix",
