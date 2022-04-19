@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { setupTest } from 'ember-qunit';
+import { setupTest } from 'dummy/tests/helpers';
 
 module('Unit | Service | liveagent', function (hooks) {
   setupTest(hooks);
