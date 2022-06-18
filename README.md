@@ -13,7 +13,7 @@ Salesforce's [live agent](https://www.salesforce.com/products/service-cloud/feat
 
 - Ember.js v3.24 or above
 - Ember CLI v3.24 or above
-- Node.js v12 or above
+- Node.js v14 or above
 
 ## Installation
 
