@@ -35,6 +35,7 @@
     "changelog": "lerna-changelog"
   },
   "dependencies": {
+    "@release-it-plugins/lerna-changelog": "^5.0.0",
     "ember-cli-babel": "^7.26.11",
     "ember-cli-htmlbars": "^6.1.0"
   },
@@ -78,7 +79,6 @@
     "qunit": "^2.19.1",
     "qunit-dom": "^2.0.0",
     "release-it": "^14.14.3",
-    "release-it-lerna-changelog": "^4.0.1",
     "webpack": "^5.73.0"
   },
   "engines": {
