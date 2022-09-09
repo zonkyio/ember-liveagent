@@ -37,7 +37,7 @@
   "dependencies": {
     "@release-it-plugins/lerna-changelog": "^5.0.0",
     "ember-cli-babel": "^7.26.11",
-    "ember-cli-htmlbars": "^6.1.0"
+    "ember-cli-htmlbars": "^6.1.1"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.18.9",
