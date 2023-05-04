@@ -21,6 +21,8 @@
   "scripts": {
     "build": "ember build --environment=production",
     "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:css:fix": "concurrently \"npm:lint:css -- --fix\"",
     "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
@@ -51,7 +53,7 @@
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^8.0.1",
     "ember-auto-import": "^2.6.3",
-    "ember-cli": "~4.11.0",
+    "ember-cli": "~4.12.1",
     "ember-cli-code-coverage": "^2.0.0",
     "ember-cli-dependency-checker": "^3.3.1",
     "ember-cli-inject-live-reload": "^2.1.0",
@@ -79,10 +81,13 @@
     "qunit": "^2.19.4",
     "qunit-dom": "^2.0.0",
     "release-it": "^15.10.3",
+    "stylelint": "^15.4.0",
+    "stylelint-config-standard": "^32.0.0",
+    "stylelint-prettier": "^3.0.0",
     "webpack": "^5.82.0"
   },
   "peerDependencies": {
-    "ember-source": "^3.28.0 || ^4.0.0"
+    "ember-source": "^4.0.0"
   },
   "engines": {
     "node": "14.* || 16.* || >= 18"
@@ -94,8 +99,8 @@
     "configPath": "tests/dummy/config"
   },
   "volta": {
-    "node": "16.13.2",
-    "npm": "8.1.2"
+    "node": "16.20.0",
+    "npm": "8.19.4"
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix",
