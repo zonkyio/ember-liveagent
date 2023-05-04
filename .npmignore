@@ -20,6 +20,8 @@
 /.prettierignore
 /.prettierrc.js
 /.release-it.js
+/.stylelintignore
+/.stylelintrc.js
 /.template-lintrc.js
 /.watchmanconfig
 /bower.json
