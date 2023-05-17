@@ -73,8 +73,8 @@ export default class LiveAgentService extends Service {
       svc.settings.storageDomain = domain;
     }
 
-    svc.snippetSettingsFile.extraPrechatFormDetails = extraPrechatFormDetails;
-    svc.snippetSettingsFile.extraPrechatInfo = extraPrechatInfo;
+    svc.settings.extraPrechatFormDetails = extraPrechatFormDetails;
+    svc.settings.extraPrechatInfo = extraPrechatInfo;
 
     svc.init(
       salesforceURL,
