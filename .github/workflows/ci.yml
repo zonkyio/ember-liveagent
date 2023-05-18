@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: volta-cli/action@v4.0.0
+      - uses: volta-cli/action@v4.0.1
         with:
           node-version: 14.x
       - run: npm ci
@@ -38,7 +38,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: volta-cli/action@v4.0.0
+      - uses: volta-cli/action@v4.0.1
         with:
           node-version: 14.x
       - run: npm install --no-shrinkwrap
@@ -65,7 +65,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: volta-cli/action@v4.0.0
+      - uses: volta-cli/action@v4.0.1
         with:
           node-version: 14.x
       - run: npm ci
