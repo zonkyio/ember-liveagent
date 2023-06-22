@@ -94,4 +94,18 @@ export default class LiveAgentService extends Service {
       }
     );
   }
+
+  hideHelpButton() {
+    if (!window.embedded_svc) {
+      return;
+    }
+    window.embedded_svc.hideHelpButton();
+  }
+
+  showHelpButton() {
+    if (!window.embedded_svc) {
+      return;
+    }
+    window.embedded_svc.showHelpButton();
+  }
 }

@@ -136,4 +136,32 @@ module('Unit | Service | liveagent', function (hooks) {
     assert.deepEqual(window.embedded_svc.settings, {});
     assert.deepEqual(window.embedded_svc.snippetSettingsFile, {});
   });
+
+  test('it delegates to embedded_svc.hideHelpButton()', function (assert) {
+    assert.expect(1);
+
+    window.embedded_svc = {
+      hideHelpButton() {
+        assert.true(true, 'hideHelpButton() called');
+      },
+    };
+
+    let service = this.owner.lookup('service:liveagent');
+
+    service.hideHelpButton();
+  });
+
+  test('it delegates to embedded_svc.showHelpButton()', function (assert) {
+    assert.expect(1);
+
+    window.embedded_svc = {
+      showHelpButton() {
+        assert.true(true, 'showHelpButton() called');
+      },
+    };
+
+    let service = this.owner.lookup('service:liveagent');
+
+    service.showHelpButton();
+  });
 });
