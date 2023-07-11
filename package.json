@@ -37,7 +37,7 @@
     "changelog": "lerna-changelog"
   },
   "dependencies": {
-    "@release-it-plugins/lerna-changelog": "^5.0.0",
+    "@release-it-plugins/lerna-changelog": "^6.0.0",
     "ember-cli-babel": "^7.26.11",
     "ember-cli-htmlbars": "^6.2.0"
   },
