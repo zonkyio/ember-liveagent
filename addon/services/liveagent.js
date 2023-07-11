@@ -91,7 +91,7 @@ export default class LiveAgentService extends Service {
           ? eswLiveAgentDevName
           : eswLiveAgentDevNameWithoutPrechat,
         isOfflineSupportEnabled,
-      }
+      },
     );
   }
 

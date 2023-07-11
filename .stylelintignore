@@ -4,5 +4,10 @@
 # compiled output
 /dist/
 
+# misc
+/coverage/
+!.*
+.*/
+
 # addons
 /.node_modules.ember-try/
