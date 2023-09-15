@@ -37,7 +37,7 @@
     "changelog": "lerna-changelog"
   },
   "dependencies": {
-    "@babel/core": "^7.22.17",
+    "@babel/core": "^7.22.19",
     "ember-cli-babel": "^8.0.0",
     "ember-cli-htmlbars": "^6.3.0"
   },
