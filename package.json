@@ -84,7 +84,7 @@
     "release-it": "^17.1.1",
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0",
-    "stylelint-prettier": "^4.1.0",
+    "stylelint-prettier": "^5.0.0",
     "webpack": "^5.90.3"
   },
   "peerDependencies": {
