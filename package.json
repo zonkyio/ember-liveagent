@@ -1,8 +1,8 @@
 {
   "private": true,
-  "repository": "",
+  "repository": "https://github.com/zonkyio/ember-liveagent.git",
   "license": "MIT",
-  "author": "",
+  "author": "@zonkyio",
   "scripts": {
     "build": "npm run build --workspace ember-liveagent",
     "lint": "npm run lint --workspaces --if-present",
@@ -23,5 +23,14 @@
   "workspaces": [
     "ember-liveagent",
     "test-app"
-  ]
+  ],
+  "volta": {
+    "node": "18.20.0",
+    "npm": "10.5.0"
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --fix",
+    "*.hbs": "ember-template-lint --fix",
+    "*.md": "prettier --write"
+  }
 }

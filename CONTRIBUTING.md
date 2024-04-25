@@ -2,7 +2,7 @@
 
 ## Installation
 
-- `git clone <repository-url>`
+- `git clone https://github.com/zonkyio/ember-liveagent.git`
 - `cd ember-liveagent`
 - `npm install`
 

@@ -12,3 +12,7 @@ declare module '@glint/environment-ember-loose/registry' {
     // See https://typed-ember.gitbook.io/glint/using-glint/ember/using-addons
   }
 }
+
+declare global {
+  const FastBoot: unknown;
+}

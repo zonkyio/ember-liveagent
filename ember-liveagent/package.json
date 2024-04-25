@@ -1,13 +1,23 @@
 {
   "name": "ember-liveagent",
-  "version": "0.0.0",
-  "description": "The default blueprint for Embroider v2 addons.",
+  "version": "0.2.0",
+  "description": "Salesforce's live agent chat integration for Ember.js applications.",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "salesforce",
+    "liveagent",
+    "chat"
   ],
-  "repository": "",
+  "homepage": "https://github.com/zonkyio/ember-liveagent#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zonkyio/ember-liveagent.git",
+    "directory": "ember-liveagent"
+  },  "bugs": {
+    "url": "https://github.com/zonkyio/ember-liveagent/issues"
+  },
   "license": "MIT",
-  "author": "",
+  "author": "@zonkyio",
   "exports": {
     ".": {
       "types": "./declarations/index.d.ts",
@@ -32,18 +42,18 @@
     "dist"
   ],
   "scripts": {
-    "build": "concurrently ':build:*'",
+    "build": "concurrently 'npm:build:*'",
     "build:js": "rollup --config",
     "build:types": "glint --declaration",
-    "lint": "concurrently ':lint:*(!fix)' --names 'lint:'",
-    "lint:fix": "concurrently ':lint:*:fix' --names 'fix:'",
+    "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
+    "lint:fix": "concurrently 'npm:lint:*:fix' --names 'fix:'",
     "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
     "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "lint:types": "glint",
-    "prepack": "concurrently ':build:*'",
-    "start": "concurrently ':start:*'",
+    "prepack": "concurrently 'npm:build:*'",
+    "start": "concurrently 'npm:start:*'",
     "start:js": "rollup --config --watch --no-watch.clearScreen",
     "start:types": "glint --declaration --watch",
     "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
@@ -101,6 +111,9 @@
     "rollup-plugin-copy": "^3.5.0",
     "typescript": "^5.3.3"
   },
+  "peerDependencies": {
+    "ember-source": "^4.0.0"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
@@ -110,6 +123,12 @@
   "ember-addon": {
     "version": 2,
     "type": "addon",
-    "main": "addon-main.cjs"
+    "main": "addon-main.cjs",
+    "app-js": {
+      "./services/liveagent.js": "./dist/_app_/services/liveagent.js"
+    }
+  },
+  "volta": {
+    "extends": "../package.json"
   }
 }

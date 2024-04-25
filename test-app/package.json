@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "description": "Test app for ember-liveagent addon",
-  "repository": "",
+  "repository": "https://github.com/zonkyio/ember-liveagent.git",
   "license": "MIT",
-  "author": "",
+  "author": "@zonkyio",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -23,7 +23,7 @@
     "lint:types": "tsc --noEmit",
     "start": "ember serve",
     "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
-    "test:ember": "ember test"
+    "test:ember": "ember test --server"
   },
   "devDependencies": {
     "@babel/core": "^7.24.4",
@@ -80,7 +80,7 @@
     "ember-cli-terser": "^4.0.2",
     "ember-data": "~5.3.3",
     "ember-fetch": "^8.1.2",
-    "ember-liveagent": "^0.0.0",
+    "ember-liveagent": "^0.2.0",
     "ember-load-initializers": "^2.1.2",
     "ember-modifier": "^4.1.0",
     "ember-page-title": "^8.2.3",
