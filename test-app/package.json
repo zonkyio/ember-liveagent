@@ -23,7 +23,7 @@
     "lint:types": "tsc --noEmit",
     "start": "ember serve",
     "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
-    "test:ember": "ember test --server"
+    "test:ember": "ember test"
   },
   "devDependencies": {
     "@babel/core": "^7.24.4",

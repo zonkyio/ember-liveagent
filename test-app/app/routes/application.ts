@@ -1,39 +1,11 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
+import type LiveAgentService from 'ember-liveagent/services/liveagent';
 
 export default class ApplicationRoute extends Route {
-  @service liveagent!: {
-    boot: (arg0: {
-      salesforceURL: string;
-      communityURL: string;
-      org: string;
-      snapinName: string;
-      baseLiveAgentContentURL: string;
-      deploymentId: string;
-      buttonId: string;
-      baseLiveAgentURL: string;
-      eswLiveAgentDevName: string;
-      settings: {
-        displayHelpButton: boolean;
-        domain: string;
-        extraPrechatFormDetails: string[];
-        extraPrechatInfo: string[];
-        defaultMinimizedText: string;
-        loadingText: string;
-        prepopulatedPrechatFields: { field: string };
-        offlineSupportMinimizedText: string;
-        isOfflineSupportEnabled: boolean;
-      };
-    }) => void;
-  };
+  @service declare liveagent: LiveAgentService;
 
   afterModel() {
-    const liveagentService = this.liveagent;
-
-    if (!liveagentService) {
-      throw new Error('Liveagent service is not available.');
-    }
-
     this.liveagent.boot({
       salesforceURL: 'test://salesforceURL',
       communityURL: 'test://communityURL',
