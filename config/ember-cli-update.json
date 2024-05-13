@@ -11,6 +11,7 @@
           "isBaseBlueprint": true,
           "options": [
             "--ci-provider=github",
+            "--pnpm",
             "--typescript"
           ]
         }

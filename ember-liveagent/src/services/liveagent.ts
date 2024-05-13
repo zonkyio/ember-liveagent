@@ -53,8 +53,8 @@ interface EmbeddedService {
     string: string,
     options: ConfigOptions,
   ): void;
-  hideHelpButton?(): void;
-  showHelpButton?(): void;
+  hideHelpButton(): void;
+  showHelpButton(): void;
 }
 
 interface Options extends LiveAgentConfig {
@@ -87,7 +87,7 @@ export default class LiveAgentService extends Service {
       return;
     }
 
-    const svc = (window.embedded_svc || {}) as EmbeddedService;
+    const svc = window.embedded_svc;
     svc.settings = svc.settings || {};
 
     const {
@@ -142,16 +142,10 @@ export default class LiveAgentService extends Service {
   }
 
   hideHelpButton() {
-    if (!window.embedded_svc) {
-      return;
-    }
-    window.embedded_svc?.hideHelpButton?.();
+    window.embedded_svc?.hideHelpButton();
   }
 
   showHelpButton() {
-    if (!window.embedded_svc) {
-      return;
-    }
-    window.embedded_svc?.showHelpButton?.();
+    window.embedded_svc?.showHelpButton();
   }
 }

@@ -27,7 +27,7 @@ jobs:
           node-version: 18
           cache: pnpm
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
       - name: Lint
         run: pnpm lint
       - name: Run Tests
@@ -80,7 +80,7 @@ jobs:
           node-version: 18
           cache: pnpm
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
       - name: Run Tests
-        run: ../node_modules/.bin/ember try:one ${{ matrix.try-scenario }} --skip-cleanup
+        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }} --skip-cleanup
         working-directory: test-app
