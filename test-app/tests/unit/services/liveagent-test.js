@@ -90,14 +90,11 @@ module('Unit | Service | liveagent', function (hooks) {
       communityURL: 'test://communityURL',
       org: 'test://org',
       snapinName: 'test://snapinName',
-      // snapinNameWithoutPrechat: 'test://snapinNameWithoutPrechat',
       baseLiveAgentContentURL: 'test://baseLiveAgentContentURL',
       deploymentId: 'test://deploymentId',
       buttonId: 'test://buttonId',
       baseLiveAgentURL: 'test://baseLiveAgentURL',
       eswLiveAgentDevName: 'test://eswLiveAgentDevName',
-      // eswLiveAgentDevNameWithoutPrechat:
-      //   'test://eswLiveAgentDevNameWithoutPrechat',
       settings: {
         displayHelpButton: true,
         domain: 'custom://domain',
@@ -109,7 +106,6 @@ module('Unit | Service | liveagent', function (hooks) {
           field: 'custom://prepopulatedPrechatFields',
         },
         offlineSupportMinimizedText: 'custom://offlineSupportMinimizedText',
-        // withPrechat: true,
         isOfflineSupportEnabled: true,
       },
     });

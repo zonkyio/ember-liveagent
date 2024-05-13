@@ -16,3 +16,5 @@ declare module '@glint/environment-ember-loose/registry' {
 declare global {
   const FastBoot: unknown;
 }
+
+declare module 'ember-liveagent';

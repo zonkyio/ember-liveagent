@@ -1,6 +1,8 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import type LiveAgentService from 'ember-liveagent/services/liveagent';
+import { type LiveAgentService } from 'ember-liveagent';
+// import type LiveAgentService from 'ember-liveagent/services/liveagent';
+// import type LiveAgentService from '../../../ember-liveagent/src/services/liveagent';
 
 export default class ApplicationRoute extends Route {
   @service declare liveagent: LiveAgentService;
