@@ -13,11 +13,10 @@ module('Unit | Service | liveagent', function (hooks) {
   hooks.afterEach(clear);
 
   test('it boots', function (assert) {
-    assert.expect(9);
+    assert.expect(8);
 
     window.embedded_svc = {
       settings: {},
-      snippetSettingsFile: {},
       init() {
         assert.strictEqual(arguments.length, 6);
         assert.strictEqual(arguments[0], 'test://salesforceURL');
@@ -48,20 +47,16 @@ module('Unit | Service | liveagent', function (hooks) {
       loadingText: 'Loading',
       offlineSupportMinimizedText: 'Contact Us',
       prepopulatedPrechatFields: {},
-    });
-
-    assert.deepEqual(window.embedded_svc.snippetSettingsFile, {
       extraPrechatFormDetails: [],
       extraPrechatInfo: [],
     });
   });
 
   test('it boots with custom options', function (assert) {
-    assert.expect(9);
+    assert.expect(8);
 
     window.embedded_svc = {
       settings: {},
-      snippetSettingsFile: {},
       init() {
         assert.strictEqual(arguments.length, 6);
         assert.strictEqual(arguments[0], 'test://salesforceURL');
@@ -109,20 +104,16 @@ module('Unit | Service | liveagent', function (hooks) {
         field: 'custom://prepopulatedPrechatFields',
       },
       storageDomain: 'custom://domain',
-    });
-
-    assert.deepEqual(window.embedded_svc.snippetSettingsFile, {
       extraPrechatFormDetails: ['custom://extraPrechatFormDetails'],
       extraPrechatInfo: ['custom://extraPrechatInfo'],
     });
   });
 
   test('it does not boot in FastBoot', function (assert) {
-    assert.expect(2);
+    assert.expect(1);
 
     window.embedded_svc = {
       settings: {},
-      snippetSettingsFile: {},
       init() {
         assert.ok(false);
       },
@@ -134,7 +125,6 @@ module('Unit | Service | liveagent', function (hooks) {
     service.boot();
 
     assert.deepEqual(window.embedded_svc.settings, {});
-    assert.deepEqual(window.embedded_svc.snippetSettingsFile, {});
   });
 
   test('it delegates to embedded_svc.hideHelpButton()', function (assert) {
