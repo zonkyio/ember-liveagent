@@ -11,9 +11,8 @@ Salesforce's [live agent](https://www.salesforce.com/products/service-cloud/feat
 
 ## Compatibility
 
-- Ember.js v4.8 or above
-- Ember CLI v4.8 or above
-- Node.js v18 or above
+- Ember.js v4.12 or above
+- Embroider or ember-auto-import v2
 
 ## Installation
 
@@ -46,7 +45,7 @@ module.exports = function (environment) {
 };
 ```
 
-_See the [service](addon/services/liveagent.js) for how the parameters are passed into `embedded_svc`'s `init` method._
+_See the [service](ember-liveagent/src/services/liveagent.ts) for how the parameters are passed into `embedded_svc`'s `init` method._
 
 2\. You can then inject the `liveagent` service provided by this addon to call the `boot` method which accepts optional parameters.
 
@@ -54,19 +53,25 @@ _See the [service](addon/services/liveagent.js) for how the parameters are passe
 // app/routes/application.js
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
+import config from "../config/environment"; // import the configuration
 
 export default class ApplicationRoute extends Route {
   @service liveagent;
 
-  afterModel() {
+   afterModel() {
+    const liveagentConfig = config["ember-liveagent"];
+    
     this.liveagent.boot({
-      displayHelpButton: true, // default value: false
-      isOfflineSupportEnabled: true, // default value: false
-      language: "cs", // default value: 'en'
-      defaultMinimizedText: "Ask guru", // default value: 'Chat with an Expert'
-      loadingText: "Just wait a second", // default value: 'Loading'
-      prepopulatedPrechatFields: { Email: "example@example.com" }, // default value: {}
-      offlineSupportMinimizedText: "You can contact us", // default value: 'Contact Us'
+      ...liveAgentConfig,
+      settings: {
+        displayHelpButton: true, // default value: false
+        isOfflineSupportEnabled: true, // default value: false
+        language: "cs", // default value: 'en'
+        defaultMinimizedText: "Ask guru", // default value: 'Chat with an Expert'
+        loadingText: "Just wait a second", // default value: 'Loading'
+        prepopulatedPrechatFields: { Email: "example@example.com" }, // default value: {}
+        offlineSupportMinimizedText: "You can contact us", // default value: 'Contact Us'
+      }
     });
   }
 }
