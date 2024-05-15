@@ -14,26 +14,27 @@
     "test": "pnpm --filter '*' test",
     "test:ember": "pnpm --filter '*' test:ember"
   },
+  "lint-staged": {
+    "*.{js,ts,cjs,mjs}": "eslint --cache --fix",
+    "*.hbs": "ember-template-lint --fix",
+    "*.md": "prettier --write"
+  },
   "devDependencies": {
     "@glint/core": "^1.2.1",
     "concurrently": "^8.2.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "prettier": "^3.0.3",
-    "prettier-plugin-ember-template-tag": "^1.1.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/eslint": "^7.0.0"
-    }
+    "prettier-plugin-ember-template-tag": "^1.1.0",
+    "release-plan": "^0.9.0"
   },
   "volta": {
     "node": "18.20.0",
     "pnpm": "9.1.1"
   },
-  "lint-staged": {
-    "*.{js,ts}": "eslint --cache --fix",
-    "*.hbs": "ember-template-lint --fix",
-    "*.md": "prettier --write"
+  "pnpm": {
+    "overrides": {
+      "@types/eslint": "^7.0.0"
+    }
   }
 }
