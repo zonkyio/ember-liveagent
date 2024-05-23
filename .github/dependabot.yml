@@ -1,21 +1,13 @@
 version: 2
 updates:
   - package-ecosystem: npm
-    directories: 
-      - "/"
-      - "/ember-liveagent"
-      - "/test-app"
+    directories:
+      - '/'
+      - '/ember-liveagent'
+      - '/test-app'
     schedule:
       interval: daily
-      time: '04:00'
-    open-pull-requests-limit: 10
-    versioning-strategy: increase
   - package-ecosystem: github-actions
-    directories: 
-      - "/"
-      - "/ember-liveagent"
-      - "/test-app"    
+    directory: '/'
     schedule:
       interval: daily
-      time: '04:00'
-    open-pull-requests-limit: 10
