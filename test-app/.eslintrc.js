@@ -7,11 +7,7 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   plugins: ['ember', '@typescript-eslint'],
-  extends: [
-    'eslint:recommended',
-    'plugin:ember/recommended',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:ember/recommended', 'prettier'],
   env: {
     browser: true,
   },
@@ -31,6 +27,7 @@ module.exports = {
       files: [
         './.eslintrc.js',
         './.prettierrc.js',
+        './.lintstagedrc.cjs',
         './.stylelintrc.js',
         './.template-lintrc.js',
         './ember-cli-build.js',

@@ -28,16 +28,16 @@ ember install ember-liveagent
 // config/environment.js
 module.exports = function (environment) {
   let ENV = {
-    "ember-liveagent": {
-      salesforceURL: "[SALESFORCE_URL]",
-      communityURL: "[COMMUNITY_URL]",
-      org: "[ORG]",
-      snapinName: "[SNAPIN_NAME]",
-      baseLiveAgentContentURL: "[BASE_LIVEAGENT_CONTENT_URL]",
-      deploymentId: "[DEPLOYMENT_ID]",
-      buttonId: "[BUTTON_ID]",
-      baseLiveAgentURL: "[BASE_LIVEAGENT_URL]",
-      eswLiveAgentDevName: "[ESW_LIVEAGENT_DEV_NAME]",
+    'ember-liveagent': {
+      salesforceURL: '[SALESFORCE_URL]',
+      communityURL: '[COMMUNITY_URL]',
+      org: '[ORG]',
+      snapinName: '[SNAPIN_NAME]',
+      baseLiveAgentContentURL: '[BASE_LIVEAGENT_CONTENT_URL]',
+      deploymentId: '[DEPLOYMENT_ID]',
+      buttonId: '[BUTTON_ID]',
+      baseLiveAgentURL: '[BASE_LIVEAGENT_URL]',
+      eswLiveAgentDevName: '[ESW_LIVEAGENT_DEV_NAME]',
     },
   };
 
@@ -51,27 +51,27 @@ _See the [service](ember-liveagent/src/services/liveagent.ts) for how the parame
 
 ```javascript
 // app/routes/application.js
-import Route from "@ember/routing/route";
-import { inject as service } from "@ember/service";
-import config from "../config/environment"; // import the configuration
+import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
+import config from '../config/environment'; // import the configuration
 
 export default class ApplicationRoute extends Route {
   @service liveagent;
 
-   afterModel() {
-    const liveagentConfig = config["ember-liveagent"];
-    
+  afterModel() {
+    const liveagentConfig = config['ember-liveagent'];
+
     this.liveagent.boot({
       ...liveAgentConfig,
       settings: {
         displayHelpButton: true, // default value: false
         isOfflineSupportEnabled: true, // default value: false
-        language: "cs", // default value: 'en'
-        defaultMinimizedText: "Ask guru", // default value: 'Chat with an Expert'
-        loadingText: "Just wait a second", // default value: 'Loading'
-        prepopulatedPrechatFields: { Email: "example@example.com" }, // default value: {}
-        offlineSupportMinimizedText: "You can contact us", // default value: 'Contact Us'
-      }
+        language: 'cs', // default value: 'en'
+        defaultMinimizedText: 'Ask guru', // default value: 'Chat with an Expert'
+        loadingText: 'Just wait a second', // default value: 'Loading'
+        prepopulatedPrechatFields: { Email: 'example@example.com' }, // default value: {}
+        offlineSupportMinimizedText: 'You can contact us', // default value: 'Contact Us'
+      },
     });
   }
 }

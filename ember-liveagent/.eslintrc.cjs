@@ -7,11 +7,7 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   plugins: ['ember', 'import'],
-  extends: [
-    'eslint:recommended',
-    'plugin:ember/recommended',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:ember/recommended', 'prettier'],
   env: {
     browser: true,
   },

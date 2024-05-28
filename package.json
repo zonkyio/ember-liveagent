@@ -5,9 +5,13 @@
   "author": "@zonkyio",
   "scripts": {
     "build": "pnpm --filter ember-liveagent build",
-    "lint": "pnpm --filter '*' lint",
-    "lint:fix": "pnpm --filter '*' lint:fix",
-    "prepare": "pnpm build",
+    "lint": "concurrently 'pnpm:lint:*(!fix)' --names 'lint:' && pnpm --filter '*' lint",
+    "lint:fix": "concurrently 'pnpm:lint:*:fix' --names 'fix:' && pnpm --filter '*' lint:fix",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "format": "prettier . --check && pnpm --filter '*' format",
+    "format:fix": "prettier . --write && pnpm --filter '*' format:fix",
+    "prepare": "pnpm build && husky",
     "start": "concurrently 'pnpm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
     "start:addon": "pnpm --filter ember-liveagent start --no-watch.clearScreen",
     "start:test-app": "pnpm --filter test-app start",
@@ -17,16 +21,22 @@
   "devDependencies": {
     "@glint/core": "^1.2.1",
     "concurrently": "^8.2.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-n": "^17.7.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "prettier": "^3.0.3",
-    "prettier-plugin-ember-template-tag": "^1.1.0"
+    "prettier-plugin-ember-template-tag": "^1.1.0",
+    "release-plan": "^0.9.0"
+  },
+  "volta": {
+    "node": "18.20.0",
+    "pnpm": "9.1.1"
   },
   "pnpm": {
     "overrides": {
       "@types/eslint": "^7.0.0"
     }
-  },
-  "volta": {
-    "node": "18.20.0",
-    "pnpm": "9.1.1"
   }
 }
