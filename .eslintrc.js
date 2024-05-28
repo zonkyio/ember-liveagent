@@ -2,9 +2,10 @@
 
 module.exports = {
   root: true,
-  extends: ['eslint:recommended', 'plugin:n/recommended'],
+  ignorePatterns: ['**/*', '!.eslintrc.js', '!.prettierrc.cjs'],
+  extends: ['eslint:recommended', 'plugin:n/recommended', 'prettier'],
   env: {
-    browser: true,
+    node: true,
   },
   rules: {
     'no-console': 'error',
