@@ -1,0 +1,17 @@
+{
+  "solution": {
+    "ember-liveagent": {
+      "impact": "minor",
+      "oldVersion": "0.2.0",
+      "newVersion": "0.3.0",
+      "constraints": [
+        {
+          "impact": "minor",
+          "reason": "Appears in changelog section :rocket: Enhancement"
+        }
+      ],
+      "pkgJSONPath": "./ember-liveagent/package.json"
+    }
+  },
+  "description": "## Release (2024-05-29)\n\nember-liveagent 0.3.0 (minor)\n\n#### :rocket: Enhancement\n* `ember-liveagent`, `test-app`\n  * [#1050](https://github.com/zonkyio/ember-liveagent/pull/1050) V2 migration follow-up ([@magda-zonky](https://github.com/magda-zonky))\n  * [#1036](https://github.com/zonkyio/ember-liveagent/pull/1036) Migrate to v2 addon ([@magda-zonky](https://github.com/magda-zonky))\n\n#### Committers: 1\n- [@magda-zonky](https://github.com/magda-zonky)\n"
+}
