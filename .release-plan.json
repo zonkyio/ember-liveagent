@@ -1,21 +1,8 @@
 {
   "solution": {
     "ember-liveagent": {
-      "impact": "minor",
-      "oldVersion": "0.3.0",
-      "newVersion": "0.4.0",
-      "constraints": [
-        {
-          "impact": "minor",
-          "reason": "Appears in changelog section :rocket: Enhancement"
-        },
-        {
-          "impact": "patch",
-          "reason": "Appears in changelog section :house: Internal"
-        }
-      ],
-      "pkgJSONPath": "./ember-liveagent/package.json"
+      "oldVersion": "0.4.0"
     }
   },
-  "description": "## Release (2024-07-22)\n\nember-liveagent 0.4.0 (minor)\n\n#### :rocket: Enhancement\n* `ember-liveagent`, `test-app`\n  * [#1050](https://github.com/zonkyio/ember-liveagent/pull/1050) V2 migration follow-up ([@magda-zonky](https://github.com/magda-zonky))\n  * [#1036](https://github.com/zonkyio/ember-liveagent/pull/1036) Migrate to v2 addon ([@magda-zonky](https://github.com/magda-zonky))\n\n#### :house: Internal\n* Other\n  * [#1068](https://github.com/zonkyio/ember-liveagent/pull/1068) Update pnpm to v9.6.0 🆙 ([@bobisjan](https://github.com/bobisjan))\n  * [#1067](https://github.com/zonkyio/ember-liveagent/pull/1067) Setup pnpm before node ([@bobisjan](https://github.com/bobisjan))\n  * [#1066](https://github.com/zonkyio/ember-liveagent/pull/1066) Update release plan setup ([@bobisjan](https://github.com/bobisjan))\n  * [#1064](https://github.com/zonkyio/ember-liveagent/pull/1064) Unlock installation with frozen lockfile ([@bobisjan](https://github.com/bobisjan))\n  * [#1063](https://github.com/zonkyio/ember-liveagent/pull/1063) Align pnpm version in workflows/publish with the one used in package.… ([@magda-zonky](https://github.com/magda-zonky))\n  * [#1062](https://github.com/zonkyio/ember-liveagent/pull/1062) Update lockfile ([@magda-zonky](https://github.com/magda-zonky))\n* `ember-liveagent`\n  * [#1057](https://github.com/zonkyio/ember-liveagent/pull/1057) Release new version ([@magda-zonky](https://github.com/magda-zonky))\n\n#### Committers: 2\n- Jan Bobisud ([@bobisjan](https://github.com/bobisjan))\n- [@magda-zonky](https://github.com/magda-zonky)\n"
+  "description": "\n\n\n\n"
 }
